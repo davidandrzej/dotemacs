@@ -6,7 +6,7 @@
 (defun dired-launch-command ()
   (interactive)
   (dired-do-shell-command
-   (if (string-match "Aquamacs" (emacs-version))       
+   (if (string-match "darwin" (symbol-name system-type))
        "open"
      "gnome-open")
    nil
