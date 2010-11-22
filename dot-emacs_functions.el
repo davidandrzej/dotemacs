@@ -2,6 +2,21 @@
 ; Custom functions and keyboard shortcuts
 ;
 
+; Hack dired to launch files with 'l' key.
+(defun dired-launch-command ()
+  (interactive)
+  (dired-do-shell-command
+   (if (string-match "Aquamacs" (emacs-version))       
+       "open"
+     "gnome-open")
+   nil
+   (dired-get-marked-files t current-prefix-arg)))
+
+(setq dired-load-hook
+      (lambda (&rest ignore)
+ (define-key dired-mode-map
+   "l" 'dired-launch-command)))
+
 ; Browsing LDA topics
 (defun goto-topic (tnum)
   (interactive "sTopic number:")

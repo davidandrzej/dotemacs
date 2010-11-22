@@ -34,6 +34,7 @@
     (set-background-color "black")
     (set-cursor-color "green")))
 
+
 ;
 ; Remaining entries should be machine-specific 
 ; (more or less)
