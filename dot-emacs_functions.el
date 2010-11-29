@@ -2,6 +2,9 @@
 ; Custom functions and keyboard shortcuts
 ;
 
+; I use query replace all the time
+(global-set-key "\C-cq" 'query-replace)
+
 ; Hack dired to launch files with 'l' key.
 (defun dired-launch-command ()
   (interactive)
