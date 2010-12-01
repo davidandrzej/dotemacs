@@ -19,6 +19,7 @@
 (if (string-match "Aquamacs" (emacs-version))
     (progn
       (message "Customizing Aquamacs")
+      (global-set-key "\M-q" 'fill-paragraph) ;; why does aquamacs break this?
       (set-default-font 
        "-apple-Consolas-medium-normal-normal-*-*-*-*-*-m-0-iso10646-1")
       (set-face-attribute 'default nil :height 160)
