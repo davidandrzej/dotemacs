@@ -1,6 +1,6 @@
 ;
 ; Dave Andrzejewski
-; 11/22/2010
+; 12/05/2010
 ;
 
 ;
@@ -46,7 +46,7 @@
 ;
 (defun ess-mode ()
   (interactive)
-  (load "/home/andrzejewski1/local/ess-5.11/lisp/ess-site.el"))
+  (load "~/local/ess-5.11/lisp/ess-site.el"))
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
