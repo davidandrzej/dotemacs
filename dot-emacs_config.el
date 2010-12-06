@@ -2,7 +2,7 @@
 ; General emacs configurations
 ;
 ; Dave Andrzejewski
-; 11/22/2010
+; 12/05/2010
 ;
 
 ; use multiple spaces instead of tabs 

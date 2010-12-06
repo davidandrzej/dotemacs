@@ -2,7 +2,10 @@
 ; Custom functions and keyboard shortcuts
 ;
 
-; I use query replace all the time
+; Easier goto-line
+(global-set-key "\M-;" 'goto-line)
+
+; Easier query-replace
 (global-set-key "\C-cq" 'query-replace)
 
 ; Hack dired to launch files with 'l' key.
