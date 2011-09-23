@@ -44,22 +44,6 @@
 ;
 ; Emacs Speaks Statistics (ESS)
 ;
-(defun ess-mode ()
-  (interactive)
-  (load "~/local/ess-5.11/lisp/ess-site.el"))
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
-
-; Need to tell swank where to find the jars
-(setq swank-clojure-classpath 
-      (list "~/.cljr/lib/clojure-1.2.0-beta1.jar"
-            "~/.cljr/lib/clojure-contrib-1.2.0-beta1.jar"
-            "~/.cljr/lib/swank-clojure-1.2.1.jar"))
+;; (defun ess-mode ()
+;;   (interactive)
+;;   (load "~/local/ess-5.11/lisp/ess-site.el"))
