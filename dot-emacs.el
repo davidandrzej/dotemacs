@@ -37,9 +37,8 @@
 
 
 ;
-; Remaining entries should be machine-specific 
-; (more or less)
-;
+; Remaining entries (more or less) machine-specific 
+; 
 
 ;
 ; Emacs Speaks Statistics (ESS)
@@ -47,3 +46,21 @@
 ;; (defun ess-mode ()
 ;;   (interactive)
 ;;   (load "~/local/ess-5.11/lisp/ess-site.el"))
+
+;
+; Scala mode
+;
+;; (add-to-list 'load-path "~/.emacs.d/scala-mode")
+;; (require 'scala-mode-auto)
+
+;
+; Groovy mode
+;
+;; (add-to-list 'load-path "~/.emacs.d/groovy-mode")
+;; (autoload 'groovy-mode "groovy-mode" "Major mode for editing Groovy code." t)
+;; (add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
+;; (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
+;; (add-hook 'groovy-mode-hook
+;;           '(lambda ()
+;;              (require 'groovy-electric)
+;;              (groovy-electric-mode)))
