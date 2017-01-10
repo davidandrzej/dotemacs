@@ -1,66 +1,48 @@
 ;
 ; Dave Andrzejewski
-; 12/05/2010
+; 1/10/2017
 ;
 
-;
+; Init ELPA package mgmt and theme 
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(load-theme 'cyberpunk t)
+
 ; General emacs configuration stuff
-;
 (load "~/.emacs_config.el")
 
-;
 ; Custom functions and keyboard shortcuts
-;
 (load "~/.emacs_functions.el")
 
-;
-; GNU Emacs or Aquamacs (OS X)?
-;
-(if (string-match "Aquamacs" (emacs-version))
-    (progn
-      (message "Customizing Aquamacs")
-      (global-set-key "\M-q" 'fill-paragraph) ;; why does aquamacs break this?
-      (set-default-font 
-       "-apple-Consolas-medium-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-      (set-face-attribute 'default nil :height 160)
-      (global-set-key "\C-cs" 'aquamacs-toggle-full-frame)
-      (color-theme-initialize)
-      (color-theme-clarity))
-  (progn
-    (message "Customizing GNU Emacs")
-    (global-set-key "\C-cs" 'toggle-fullscreen)
-    (set-default-font 
-     "-bitstream-Bitstream Vera Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-    (set-foreground-color "white")
-    (set-background-color "black")
-    (set-cursor-color "green")))
+; Major mode loadings
+(load "~/.emacs_modes.el")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#000000" "#8b0000" "#00ff00" "#ffa500" "#7b68ee" "#dc8cc3" "#93e0e3" "#dcdccc"])
+ '(custom-safe-themes
+   (quote
+    ("01ce486c3a7c8b37cf13f8c95ca4bb3c11413228b35676025fdf239e77019ea1" "eb0a314ac9f75a2bf6ed53563b5d28b563eeba938f8433f6d1db781a47da1366" "38e64ea9b3a5e512ae9547063ee491c20bd717fe59d9c12219a0b1050b439cdd" default)))
+ '(fci-rule-color "#383838")
+ '(package-selected-packages
+   (quote
+    (markdown-mode+ markdown-mode ## cyberpunk-theme dracula-theme reykjavik-theme haskell-emacs intero))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
-
-;
-; Remaining entries (more or less) machine-specific 
-; 
-
-;
-; Emacs Speaks Statistics (ESS)
-;
-;; (defun ess-mode ()
-;;   (interactive)
-;;   (load "~/local/ess-5.11/lisp/ess-site.el"))
-
-;
-; Scala mode
-;
-;; (add-to-list 'load-path "~/.emacs.d/scala-mode")
-;; (require 'scala-mode-auto)
-
-;
-; Groovy mode
-;
-;; (add-to-list 'load-path "~/.emacs.d/groovy-mode")
-;; (autoload 'groovy-mode "groovy-mode" "Major mode for editing Groovy code." t)
-;; (add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
-;; (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
-;; (add-hook 'groovy-mode-hook
-;;           '(lambda ()
-;;              (require 'groovy-electric)
-;;              (groovy-electric-mode)))
+(add-hook 'haskell-mode-hook 'intero-mode)

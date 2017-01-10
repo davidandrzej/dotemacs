@@ -1,6 +1,23 @@
 ;
 ; Custom functions and keyboard shortcuts
 ;
+; Dave Andrzejewski
+; 12/1/2014
+;
+
+; This is better than shell, within ansi-term
+; C-x C-j = switch to emacs style
+; C-c C-k = switch to term style
+(defun my-term-use-utf8 ()
+  (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
+(add-hook 'term-exec-hook 'my-term-use-utf8)
+
+(defun quick-ansi-term ()
+  (interactive)
+  (progn
+    (ansi-term "/usr/local/bin/zsh")
+    (term-char-mode)))
+(global-set-key "\M-n" 'quick-ansi-term)
 
 ; Easier goto-line
 (global-set-key "\M-;" 'goto-line)
@@ -23,13 +40,6 @@
  (define-key dired-mode-map
    "l" 'dired-launch-command)))
 
-; Browsing LDA topics
-(defun goto-topic (tnum)
-  (interactive "sTopic number:")
-  (progn
-    (goto-char (point-min))
-    (search-forward (format "Topic %s" tnum))))
-(global-set-key "\C-ct" 'goto-topic)
 
 ; Common use case where 
 ; -one window contains an active LaTeX document
@@ -64,13 +74,14 @@
 
 ; Fullscreen (for non-Aquamacs)
 (defun toggle-fullscreen (&optional f)
-  (interactive)
-  (let ((current-value (frame-parameter nil 'fullscreen)))
-    (set-frame-parameter nil 'fullscreen
-                         (if (equal 'fullboth current-value)
-                             (if (boundp 'old-fullscreen) old-fullscreen nil)
-                           (progn (setq old-fullscreen current-value)
-                                  'fullboth)))))
+   (interactive)
+   (let ((current-value (frame-parameter nil 'fullscreen)))
+     (set-frame-parameter nil 'fullscreen
+                          (if (equal 'fullboth current-value)
+                              (if (boundp 'old-fullscreen) old-fullscreen nil)
+                            (progn (setq old-fullscreen current-value)
+                                   'fullboth)))))
+(global-set-key "\C-cs" 'toggle-fullscreen)
 
 ; Comment/uncommenting across all modes (not just C-like)
 (global-set-key "\C-cc" 'comment-region)

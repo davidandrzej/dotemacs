@@ -2,18 +2,27 @@
 ; General emacs configurations
 ;
 ; Dave Andrzejewski
-; 12/05/2010
+; 12/1/2014
 ;
+
+(setq-default default-directory "~/")
+
+; Spellcheck
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+(setq-default ispell-program-name "aspell")
+
+; Font
+(set-default-font 
+ "-apple-Consolas-medium-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;;(set-default-font 
+;; "-bitstream-Bitstream Vera Sans Mono-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 
 ; use multiple spaces instead of tabs 
 (setq-default indent-tabs-mode nil)
 
 ; allow dired to recursively copy directories
 (setq dired-recursive-copies t)
-
-; make frame taller on startup
-(add-to-list 'default-frame-alist '(height . 72))
-(add-to-list 'default-frame-alist '(width . 80))
 
 ; final newline compatibility
 (setq require-final-newline t)
@@ -58,9 +67,9 @@
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 
 ; dark bg / light fg for easier visibility
-(set-foreground-color "white")
-(set-background-color "black")
-(set-cursor-color "green")
+;; (set-foreground-color "white")
+;; (set-background-color "black")
+;; (set-cursor-color "green")
 
 ; flash screen instead of actual bell
 (setq-default visible-bell t)
