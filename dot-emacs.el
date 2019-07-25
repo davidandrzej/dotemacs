@@ -37,7 +37,7 @@
  '(fci-rule-color "#383838")
  '(package-selected-packages
    (quote
-    (markdown-mode+ markdown-mode ## cyberpunk-theme dracula-theme reykjavik-theme haskell-emacs intero))))
+    (groovy-mode gradle-mode ensime yaml-mode dante tide typescript-mode json-mode js2-mode ac-cider cider clj-mode yafolding scala-mode markdown-mode+ markdown-mode ## cyberpunk-theme dracula-theme reykjavik-theme haskell-emacs intero))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -44,7 +44,7 @@
 (transient-mark-mode t)
 
 ; copy selections to the X clipboard
-(setq x-select-enable-clipboard t)
+;; (setq x-select-enable-clipboard t)
 
 ; allow these commands
 (put 'eval-expression 'disabled nil)
@@ -92,3 +92,8 @@
 
 ; avoid SLIME 'fontifying' regex msg in clojure-swank mode
 (setq font-lock-verbose nil)
+
+;; nicer IPython shell
+;; https://emacs.stackexchange.com/questions/24453/weird-shell-output-when-using-ipython-5
+(setq python-shell-interpreter "/Users/david/anaconda3/bin/ipython"
+      python-shell-interpreter-args "--simple-prompt -i")
